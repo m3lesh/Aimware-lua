@@ -5,7 +5,7 @@ local gbox2 = gui.Groupbox(tap, "    ", 315, 10, 320, 0);  -- gbox2
 local Raindrops = gui.Slider(gbox1, "Number.of.raindrops", "Number of raindrops", 200, 10, 1000, 20)
 local Speed = gui.Slider(gbox1, "Speed.of.raindrops", "Speed of raindrops", 1, 1, 10, 1)
 
-local enable_sounds = gui.Checkbox(gbox1, "enable.sounds", "Enable sounds", false);
+local enable_sounds = gui.Checkbox(gbox1, "enable.sounds", "Enable sounds", true);
 local guiVolume = gui.Slider(gbox1, "volume", "Volume", 0.06, 0, 1.5, 0.01);
 guiVolume:SetDescription("Volume of the sounds.");
 
