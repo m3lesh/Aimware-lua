@@ -5,9 +5,10 @@ local gbox2 = gui.Groupbox(tap, "    ", 315, 10, 320, 0);  -- gbox2
 local Raindrops = gui.Slider(gbox1, "Number.of.raindrops", "Number of raindrops", 200, 10, 1000, 20)
 local Speed = gui.Slider(gbox1, "Speed.of.raindrops", "Speed of raindrops", 1, 1, 10, 1)
 
-local enable_sounds = gui.Checkbox(gbox1, "enable.sounds", "Enable sounds", true);
-local guiVolume = gui.Slider(gbox1, "volume", "Volume", 0.06, 0, 1.5, 0.01);
-guiVolume:SetDescription("Volume of the sounds.");
+local enable_sounds = gui.Checkbox(gbox1, "enable.sound", "Enable sound", true);
+enable_sounds:SetDescription("Please make sure add a rain.vsnd_c");
+local Volume = gui.Slider(gbox1, "volume", "Volume", 0.06, 0, 1.5, 0.01);
+
 
 
 local previousMillis = 0
@@ -98,8 +99,8 @@ end
 function drawRain()
 
     if enable_sounds:GetValue() then
-        guiVolume:SetInvisible(false)
-        local g_flVolume = guiVolume:GetValue();
+        Volume:SetInvisible(false)
+        local g_flVolume = Volume:GetValue();
         client.SetConVar("snd_toolvolume", g_flVolume, true);
         local currentMillis = globals.CurTime()
         if currentMillis - previousMillis >= 14.5 then
@@ -107,7 +108,7 @@ function drawRain()
             previousMillis = currentMillis;
         end
     else
-        guiVolume:SetInvisible(true)
+        Volume:SetInvisible(true)
     end
 
 
