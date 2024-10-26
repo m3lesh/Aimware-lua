@@ -1,4 +1,4 @@
-local ffi = require("ffi")
+
 
 ffi.cdef[[
     typedef int SOCKET;
